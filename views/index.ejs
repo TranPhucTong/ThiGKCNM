@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+
+    <div class="content">
+        <form class="form-1" action="/" method="POST" name="myform" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <input type="text" name="ma_bb" id="ma_bb" placeholder="Nhap ma bai bao" >
+            <input type="text" name="ten_bb" id="ten_bb" placeholder="Nhap ten bai bao">
+            <!-- <input type="text" name="ten_ntg" placeholder="Nhap ten nhom tac gia">
+            <input type="text" name="chi_so" placeholder="Nhap chi so ISBN">
+            <input type="text" name="so_trang" placeholder="Nhap so trang">
+            <input type="text" name="nam_xb" placeholder="Nhap nam xuat ban"> -->
+            <input type="avatar_url" id="url_link" name="avatar_url" placeholder="Nhap Link Logo bai bao">
+            <input type="submit" id="submit" value="Them moi bai bao">
+        </form>
+    
+        <form class="form-2" action="/delete" enctype="multipart/form-data" id="delete" method="POST">
+            <div class="title">
+                <h5>Danh sach san pham</h5>
+                <input type="submit" value="Xoa" id="xoa" />
+            </div>
+            <table border="1">
+                <tr >
+                    <th>Ma SP</th>
+                    <th>Ten SP</th>
+                    <!-- <th>So Luong</th> -->
+                    <th>Hinh anh</th>
+                    <th>Chon</th>
+                </tr>
+                <% for (let i = 0; i< baiBaos.length; i++) { %>
+                    <tr>
+
+                        <td id="ktMA">
+                            <%=baiBaos[i].ma_bb%>
+                        </td>
+                        <td>
+                            <%=baiBaos[i].ten_bb%>
+                        </td>
+                        <td>
+                            <%=baiBaos[i].avatar_url%>
+                        </td>
+                        <td>
+                            <input type="checkbox"  name="<%=baiBaos[i].ma_bb%>" />
+                        </td>
+                    </tr>
+                    <% } %>
+            </table>
+        </form>
+    </div>
+    
+
+    <script src="./validate.js"></script>
+
+</body>
+
+</html>
